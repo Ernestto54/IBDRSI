@@ -1,0 +1,33 @@
+CREATE TABLE Requisitos (
+    descripcion VARCHAR(20)
+);
+
+INSERT INTO Requisitos (descripcion) VALUES
+('Geólogo'),
+('Astrónomo'),
+('Técnico');
+
+CREATE TABLE Candidatos (
+    id_candidato INT,
+    descripcion VARCHAR(20)
+);
+
+INSERT INTO Candidatos (id_candidato, descripcion) VALUES
+(1001, 'Geólogo'),
+(1001, 'Astrónomo'),
+(1001, 'Bioquímico'),
+(1001, 'Técnico'),
+(2002, 'Cirujano'),
+(2002, 'Mecánico'),
+(2002, 'Geólogo'),
+(3003, 'Geólogo'),
+(3003, 'Astrónomo'),
+(4004, 'Ingeniero');
+
+SELECT c.id_candidato
+FROM Candidatos c
+LEFT JOIN Requisitos r ON c.descripcion = r.descripcion
+WHERE r.descripcion IS NOT NULL
+GROUP BY c.id_candidato;
+
+DELIMITER $$
