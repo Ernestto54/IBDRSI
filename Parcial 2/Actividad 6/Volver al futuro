@@ -1,0 +1,25 @@
+CREATE TABLE Periodos (
+    inicio DATE,
+    final DATE
+);
+
+INSERT INTO Periodos VALUES
+('2025-01-01', '2025-01-05'),
+('2025-01-03', '2025-01-09'),
+('2025-01-10', '2025-01-11'),
+('2025-01-12', '2025-01-16'),
+('2025-01-15', '2025-01-19');
+
+SELECT MIN(inicio), MAX(final) 
+FROM Periodos 
+WHERE inicio = '2025-01-01';
+
+SELECT inicio, final 
+FROM Periodos 
+WHERE inicio = '2025-01-10';
+
+SELECT MIN(inicio), MAX(final) 
+FROM Periodos 
+WHERE inicio = '2025-01-12';
+
+DELIMITER $$
