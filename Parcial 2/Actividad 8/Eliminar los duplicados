@@ -1,0 +1,14 @@
+CREATE TABLE muestra (valor INTEGER); 
+
+INSERT INTO muestra VALUES (1),(1),(2),(3),(3),(4);
+
+SELECT valor, COUNT(*) AS Frecuencia 
+FROM muestra 
+GROUP BY valor;
+
+DELETE FROM muestra 
+WHERE valor IN (SELECT valor FROM muestra GROUP BY valor HAVING COUNT(valor) > 1);
+
+SELECT DISTINCT valor FROM muestra;
+
+DELIMITER $$
