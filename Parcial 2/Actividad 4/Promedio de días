@@ -1,0 +1,26 @@
+CREATE TABLE FlujoTrabajo (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    desarrollo VARCHAR(20),
+    terminacion DATE
+);
+
+INSERT INTO FlujoTrabajo (desarrollo, terminacion) VALUES
+('RestAPI', '2024-06-01'),
+('RestAPI', '2024-06-14'),
+('RestAPI', '2024-06-15'),
+('Web', '2024-06-01'),
+('Web', '2024-06-02'),
+('Web', '2024-06-19'),
+('App', '2024-06-01'),
+('App', '2024-05-15'),
+('App', '2024-06-30');
+
+SELECT desarrollo, 
+       (SUM(terminacion - (SELECT MAX(terminacion) 
+                           FROM FlujoTrabajo AS sub 
+                           WHERE sub.desarrollo = FlujoTrabajo.desarrollo AND sub.terminacion < FlujoTrabajo.terminacion))
+        / COUNT(*)) AS Promedio_Dias
+FROM FlujoTrabajo
+GROUP BY desarrollo;
+
+Delimiter $$
