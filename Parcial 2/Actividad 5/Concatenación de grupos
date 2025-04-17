@@ -1,0 +1,20 @@
+CREATE TABLE Sintaxis (
+    secuencia INT,
+    texto VARCHAR(50)
+);
+
+INSERT INTO Sintaxis (secuencia, texto) VALUES
+(1, 'SELECT'),
+(2, 'Producto,'),
+(3, 'Precio,'),
+(4, 'Disponibilidad,'),
+(5, 'FROM'),
+(6, 'Productos'),
+(7, 'WHERE'),
+(8, 'Precio'),
+(9, '>100');
+
+SELECT texto 
+FROM Sintaxis;
+
+DELIMITER $$

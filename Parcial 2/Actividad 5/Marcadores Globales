@@ -1,0 +1,17 @@
+CREATE TABLE Marcadores (
+    jugador_a INT,
+    jugador_b INT,
+    marcador INT
+);
+
+INSERT INTO Marcadores (jugador_a, jugador_b, marcador) VALUES
+(1001, 2002, 150),
+(3003, 4004, 15),
+(4004, 3003, 125);
+
+SELECT jugador_a, jugador_b, marcador 
+FROM Marcadores;
+
+SELECT 3003, 4004, 40;
+
+DELIMITER $$
