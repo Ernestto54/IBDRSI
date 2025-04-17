@@ -1,0 +1,29 @@
+CREATE TABLE Ocurrencias (
+    proceso VARCHAR(20),
+    mensaje VARCHAR(50),
+    ocurrencia INT
+);
+
+INSERT INTO Ocurrencias VALUES
+('Web', 'Error: No se puede dividir por 0', 3),
+('RestAPI', 'Error: Fallo la conversión', 5),
+('App', 'Error: Fallo la conversión', 7),
+('RestAPI', 'Error: Error sin identificar', 9),
+('Web', 'Error: Error sin identificar', 1),
+('App', 'Error: Error sin identificar', 10),
+('Web', 'Estado Completado', 8),
+('RestAPI', 'Estado Completado', 6);
+
+SELECT 'Web', 'Error: No se puede dividir por 0', 3 
+FROM Ocurrencias;
+
+SELECT 'App', 'Error: Fallo la conversión', 7 
+FROM Ocurrencias;
+
+SELECT 'App', 'Error: Error sin identificar', 10 
+FROM Ocurrencias;
+
+SELECT 'RestAPI', 'Estado Completado', 8 
+FROM Ocurrencias;
+
+DELIMITER $$
