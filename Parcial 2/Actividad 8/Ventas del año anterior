@@ -1,0 +1,20 @@
+CREATE TABLE VentasAnuales (
+    anio INT,
+    cantidad INT
+);
+
+INSERT INTO VentasAnuales VALUES
+(2025, 352645),
+(2024, 165565),
+(2024, 254654),
+(2023, 159521),
+(2023, 251696),
+(2023, 111894);
+
+SELECT 
+    SUM(IF(anio = 2025, cantidad, 0)) AS "2025",
+    SUM(IF(anio = 2024, cantidad, 0)) AS "2024",
+    SUM(IF(anio = 2023, cantidad, 0)) AS "2023"
+FROM VentasAnuales;
+
+DELIMITER $$
