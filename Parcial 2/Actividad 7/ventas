@@ -1,0 +1,27 @@
+CREATE TABLE VentasMensuales (
+    id_orden INT,
+    id_cliente INT,
+    fecha DATE,
+    total INT,
+    estado VARCHAR(20)
+);
+
+INSERT INTO VentasMensuales VALUES
+(1, 1001, '2025-01-01', 100, 'JAL'),
+(2, 1001, '2025-01-01', 150, 'JAL'),
+(3, 1001, '2025-01-01', 75, 'JAL'),
+(4, 1001, '2025-02-01', 100, 'JAL'),
+(5, 1001, '2025-03-01', 100, 'JAL'),
+(6, 2002, '2025-02-01', 75, 'JAL'),
+(7, 2002, '2025-02-01', 150, 'JAL'),
+(8, 3003, '2025-01-01', 100, 'CDMX'),
+(9, 3003, '2025-02-01', 100, 'CDMX'),
+(10, 3003, '2025-03-01', 100, 'CDMX'),
+(11, 4004, '2025-04-01', 100, 'CDMX'),
+(12, 4004, '2025-05-01', 50, 'CDMX'),
+(13, 4004, '2025-05-01', 100, 'CDMX');
+
+SELECT 'JAL' 
+FROM VentasMensuales;
+
+DELIMITER $$
