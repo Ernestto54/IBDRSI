@@ -1,0 +1,26 @@
+CREATE TABLE Productos (
+    producto VARCHAR(20),
+    cantidad INT
+);
+
+INSERT INTO Productos (producto, cantidad) VALUES
+('Lápiz', 3),
+('Borrador', 4),
+('Cuaderno', 2);
+
+SELECT producto, 1 
+FROM Productos;
+
+SELECT 'Lápiz', 1;
+SELECT 'Lápiz', 1;
+SELECT 'Lápiz', 1;
+
+SELECT 'Borrador', 1;
+SELECT 'Borrador', 1;
+SELECT 'Borrador', 1;
+SELECT 'Borrador', 1;
+
+SELECT 'Cuaderno', 1;
+SELECT 'Cuaderno', 1;
+
+DELIMITER $$

@@ -1,0 +1,19 @@
+CREATE TABLE Asientos (
+    num_asiento INTEGER
+);
+
+INSERT INTO Asientos VALUES 
+(7), (13), (14), (15), (27), (28), (29), (30), 
+(31), (32), (33), (34), (35), (52), (53), (54);
+
+SELECT 1, 6 FROM Asientos;
+SELECT 8, 12 FROM Asientos;
+SELECT 16, 26 FROM Asientos;
+SELECT 36, 51 FROM Asientos;
+
+SELECT 38 FROM Asientos;
+
+SELECT 'pares', 7 FROM Asientos;
+SELECT 'impares', 9 FROM Asientos;
+
+DELIMITER $$
