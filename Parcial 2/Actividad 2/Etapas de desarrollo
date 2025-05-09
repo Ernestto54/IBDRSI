@@ -1,0 +1,22 @@
+CREATE TABLE Desarrollos (
+    desarrollo VARCHAR(20),
+    etapa INT,
+    finalizado DATE
+);
+
+INSERT INTO Desarrollos (desarrollo, etapa, finalizado) VALUES
+('RestAPI', 1, '2024-02-01'),
+('RestAPI', 2, '2024-05-30'),
+('RestAPI', 3, '2024-06-29'),
+('Web', 1, '2024-10-28'),
+('Web', 2, '2024-11-20'),
+('Web', 3, ''),
+('App', 1, '2025-01-30'),
+('App', 2, '');
+
+SELECT d1.desarrollo 
+FROM Desarrollos d1
+LEFT JOIN Desarrollos d2 ON d1.desarrollo = d2.desarrollo AND d2.finalizado != ''
+WHERE d2.finalizado = '';
+
+DELIMITER $$

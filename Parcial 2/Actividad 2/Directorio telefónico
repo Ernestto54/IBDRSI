@@ -1,0 +1,22 @@
+CREATE TABLE Directorio (
+    id_cliente INT,
+    tipo VARCHAR(10),
+    numero_telefono VARCHAR(15)
+);
+
+INSERT INTO Directorio (id_cliente, tipo, numero_telefono) VALUES
+(1001, 'Celular', '333-897-5421'),
+(1001, 'Trabajo', '333-897-6542'),
+(1001, 'Casa', '333-698-9874'),
+(2002, 'Celular', '333-963-6544'),
+(2002, 'Trabajo', '333-812-9856'),
+(3003, 'Celular', '333-987-6541');
+
+SELECT d1.id_cliente, d2.numero_telefono, d3.numero_telefono, d4.numero_telefono
+FROM Directorio d1
+LEFT JOIN Directorio d2 ON d1.id_cliente = d2.id_cliente AND d2.tipo = 'Celular'
+LEFT JOIN Directorio d3 ON d1.id_cliente = d3.id_cliente AND d3.tipo = 'Trabajo'
+LEFT JOIN Directorio d4 ON d1.id_cliente = d4.id_cliente AND d4.tipo = 'Casa'
+GROUP BY d1.id_cliente;
+
+DELIMITER $$
