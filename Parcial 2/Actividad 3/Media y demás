@@ -1,0 +1,16 @@
+CREATE TABLE Numeros (
+    Valor INT
+);
+
+INSERT INTO Numeros (Valor) VALUES 
+(5), (6), (10), (10), (13), (14), (17), (20), (81), (90), (76);
+
+SELECT (5 + 6 + 10 + 10 + 13 + 14 + 17 + 20 + 81 + 90 + 76) / 11;
+
+SELECT 90 - 5;
+
+SELECT 14;
+
+SELECT 10;
+
+DELIMITER $$

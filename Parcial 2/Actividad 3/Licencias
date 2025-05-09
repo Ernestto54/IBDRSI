@@ -1,0 +1,18 @@
+CREATE TABLE Empleados (
+    Id_empleado INT,
+    Licencia VARCHAR(20)
+);
+
+INSERT INTO Empleados (Id_empleado, Licencia) VALUES
+(1001, 'Tipo A'), (1001, 'Tipo B'), (1001, 'Tipo C'),
+(2002, 'Tipo A'), (2002, 'Tipo B'), (2002, 'Tipo C'),
+(3003, 'Tipo A'), (3003, 'Tipo D'),
+(4004, 'Tipo A'), (4004, 'Tipo B'), (4004, 'Tipo D'),
+(5005, 'Tipo A'), (5005, 'Tipo B'), (5005, 'Tipo D');
+
+SELECT e1.Id_empleado, e2.Id_empleado, COUNT(e1.Licencia)
+FROM Empleados e1
+JOIN Empleados e2 
+    ON e1.Licencia = e2.Licencia
+WHERE e1.Id_empleado != e2.Id_empleado
+GROUP BY e1.Id_empleado, e2.Id_empleado;
