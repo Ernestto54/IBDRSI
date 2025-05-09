@@ -1,0 +1,22 @@
+CREATE TABLE Inventario (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    fecha DATE,
+    ajuste INT
+);
+
+INSERT INTO Inventario (fecha, ajuste) VALUES
+('2025-03-01', 100),
+('2025-04-01', 75),
+('2025-05-01', -150),
+('2025-06-01', 50),
+('2025-07-01', -70);
+
+SELECT i1.fecha, 
+       i1.ajuste, 
+       (SELECT SUM(i2.ajuste) 
+        FROM Inventario i2 
+        WHERE i2.id = i1.id) AS Inventario_Actualizado
+FROM Inventario i1
+JOIN Inventario i2;
+
+Delimiter $$
