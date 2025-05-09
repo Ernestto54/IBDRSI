@@ -1,0 +1,20 @@
+CREATE TABLE Articulos ( id INT PRIMARY KEY AUTO_INCREMENT, nombre VARCHAR(50) NOT NULL );
+
+CREATE TABLE Carritos ( id INT PRIMARY KEY AUTO_INCREMENT, nombre VARCHAR(50) NOT NULL );
+
+CREATE TABLE CarritoArticulos ( carrito_id INT, articulo_id INT, PRIMARY KEY (carrito_id, articulo_id) );
+
+INSERT INTO Articulos (nombre) VALUES ('Azúcar'), ('Pan'), ('Jugo'), ('Refresco'), ('Harina'), ('Mantequilla'), ('Queso'), ('Manzana');
+
+INSERT INTO Carritos (nombre) VALUES ('Carrito 1'), ('Carrito 2');
+
+INSERT INTO CarritoArticulos (carrito_id, articulo_id) VALUES (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (2, 1), (2, 2), (2, 6), (2, 7), (2, 8);
+
+SELECT c1.nombre, c2.nombre
+
+FROM
+(SELECT A.nombre FROM CarritoArticulos CA, Articulos A) c1, 
+(SELECT A.nombre FROM CarritoArticulos CA, Articulos A) c2;
+
+DELIMITER $$
+

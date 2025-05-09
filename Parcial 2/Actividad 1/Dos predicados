@@ -1,0 +1,23 @@
+CREATE TABLE Ordenes (
+    id_cliente INT,
+    id_orden INT,
+    estado_destino VARCHAR(10),
+    costo DECIMAL(10,2)
+);
+
+INSERT INTO Ordenes (id_cliente, id_orden, estado_destino, costo) VALUES
+(1001, 1, 'JAL', 987),
+(1001, 2, 'CDMX', 400),
+(1001, 3, 'CDMX', 545),
+(1001, 4, 'CDMX', 321),
+(2002, 5, 'MTY', 324),
+(3003, 6, 'JAL', 931),
+(4004, 7, 'JAL', 876),
+(5005, 8, 'CDMX', 567);
+
+SELECT o1.id_cliente, o1.id_orden, o1.estado_destino, o1.costo
+FROM Ordenes o1
+JOIN Ordenes o2 ON o1.id_cliente = o2.id_cliente
+WHERE o2.estado_destino = 'JAL' AND o1.estado_destino = 'CDMX';
+
+DELIMITER $$
