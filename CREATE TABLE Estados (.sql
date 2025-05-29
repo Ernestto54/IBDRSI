@@ -1,32 +1,42 @@
-CREATE TABLE Estados ( 
-    Paso INT,
-    Estado VARCHAR(10)
+CREATE TABLE Astronautas (
+    Id INT,
+    Trabajo VARCHAR(20),
+    Misiones INT
 );
 
-INSERT INTO Estados (Paso, Estado) VALUES
-(1, 'Paso'),
-(2, 'Paso'),
-(3, 'Paso'),
-(4, 'Paso'),
-(5, 'Fallo'),
-(6, 'Fallo'),
-(7, 'Fallo'),
-(8, 'Fallo'),
-(9, 'Fallo'),
-(10, 'Paso'),
-(11, 'Paso'),
-(12, 'Paso');
+INSERT INTO Astronautas (Id, Trabajo, Misiones) VALUES
+(1, 'Navegador', 6),
+(2, 'Navegador', 12),
+(3, 'Navegador', 17),
+(4, 'Geólogo', 21),
+(5, 'Geólogo', 9),
+(6, 'Geólogo', 8),
+(7, 'Técnico', 13),
+(8, 'Técnico', 2),
+(9, 'Técnico', 7);
 
-SELECT * FROM Estados;
+SELECT * FROM Astronautas;
 
-SELECT '1' Paso_min, '4' Paso_Max, 'Paso' Estado, SUM(1) Cuenta
-FROM Estados
-WHERE Paso >= 1 AND Paso <= 4 AND Estado = 'Paso';
-
-SELECT '5' Paso_min, '9' Paso_Max, 'Fallo' Estado, SUM(1) Cuenta
-FROM Estados
-WHERE Paso >= 5 AND Paso <= 9 AND Estado = 'Fallo';
-
-SELECT '10' Paso_min, '12' Paso_Max, 'Paso' Estado, SUM(1) Cuenta
-FROM Estados
-WHERE Paso >= 10 AND Paso <= 12 AND Estado = 'Paso';
+SELECT 
+    'Navegador' Trabajo,
+    '3' Experimentados,
+    '1' Menos_Experimentados,
+    SUM(1) Total
+FROM Astronautas
+WHERE Trabajo = 'Navegador';
+Union
+SELECT 
+    'Geólogo',
+    '4',
+    '6',
+    SUM(1)
+FROM Astronautas
+WHERE Trabajo = 'Geólogo';
+Union
+SELECT 
+    'Técnico',
+    '7',
+    '8',
+    SUM(1)
+FROM Astronautas
+WHERE Trabajo = 'Técnico';
