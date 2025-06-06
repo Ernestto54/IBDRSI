@@ -1,0 +1,31 @@
+CREATE DATABASE EmpresaDB;
+
+SHOW DATABASES;
+
+USE EmpresaDB;
+
+CREATE USER 'jose'@'localhost' IDENTIFIED BY 'MiClaveSegura123';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON EmpresaDB.* TO 'jose'@'localhost';
+
+FLUSH PRIVILEGES;
+
+CREATE TABLE Empleados (
+    EmpleadoID INT AUTO_INCREMENT PRIMARY KEY,
+    Nombre VARCHAR(50),
+    Puesto VARCHAR(50),
+    Salario DECIMAL(10,2)
+);
+
+INSERT INTO Empleados (Nombre, Puesto, Salario) VALUES 
+('Ana Pérez', 'Contadora', 30000.00),
+('Luis Gómez', 'Gerente', 45000.00);
+
+SELECT * FROM Empleados;
+
+REVOKE INSERT, UPDATE, DELETE ON EmpresaDB.* FROM 'jose'@'localhost';
+
+FLUSH PRIVILEGES;
+
+DROP USER 'jose'@'localhost';
+
