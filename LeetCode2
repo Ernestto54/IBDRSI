@@ -1,0 +1,55 @@
+SELECT 
+    id,
+    visit_date,
+    people
+FROM 
+    (
+        SELECT 
+            id,
+            visit_date,
+            people,
+            CASE 
+                WHEN people >= 100 THEN 1 
+                ELSE 0 
+            END AS is_full
+        FROM 
+            Stadium
+    ) AS marked
+JOIN (
+    SELECT 
+        s1.id AS id1
+    FROM 
+        Stadium s1
+    JOIN Stadium s2 ON s2.id = s1.id + 1
+    JOIN Stadium s3 ON s3.id = s1.id + 2
+    WHERE 
+        s1.people >= 100 AND 
+        s2.people >= 100 AND 
+        s3.people >= 100
+) AS seq ON marked.id >= seq.id1 AND marked.id <= seq.id1 + 2
+WHERE 
+    marked.is_full = 1
+UNION
+SELECT 
+    id,
+    visit_date,
+    people
+FROM 
+    Stadium
+WHERE 
+    id > (
+        SELECT MAX(id1) FROM (
+            SELECT 
+                s1.id AS id1
+            FROM 
+                Stadium s1
+            JOIN Stadium s2 ON s2.id = s1.id + 1
+            JOIN Stadium s3 ON s3.id = s1.id + 2
+            WHERE 
+                s1.people >= 100 AND 
+                s2.people >= 100 AND 
+                s3.people >= 100
+        ) AS seq2
+    ) AND people >= 100
+ORDER BY 
+    visit_date;
